@@ -1,0 +1,26 @@
+.home nav {
+  display: flex;
+  justify-content: space-around;
+}
+
+.infosCategoria {
+  display: flex;
+  flex-direction: column;
+  border: 1px solid #000;
+  background: none;
+  height: 200px;
+  width: 200px;
+  justify-content: center;
+  align-items: center;
+  border-radius: 5px;
+  cursor: pointer;
+}
+
+.infoscat {
+  flex-wrap: wrap;
+  padding: 10px;
+  gap: 1rem;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}/*# sourceMappingURL=home.module.css.map */

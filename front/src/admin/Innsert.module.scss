@@ -1,0 +1,88 @@
+.insert {
+    background-image: url("../../imgs/wordpress-265132_1920.jpg");
+    background-repeat: no-repeat;
+    background-size: cover;
+    height: 100%;
+    position: absolute;
+    left: 0;
+    right: 0;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
+    form {
+        gap: 5px;
+        padding: 2rem;
+        background: none;
+        width: 40%;
+        border-radius: 10px;
+        border: 1px solid #fff;
+        background-color: #000000af;
+        color: #fff;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        flex-direction: column;
+        input {
+            border-radius: 5px;
+            background: none;
+            outline: none;
+            border: 2px solid #fff;
+            color: #fff;
+            &::placeholder {
+                color: #dadada;
+            }
+        }
+        textarea {
+            height: 100px;
+            width: 250px;
+            border-radius: 5px;
+            background: none;
+            outline: none;
+            border: 2px solid #fff;
+            color: #fff;
+            &::placeholder {
+                color: #dadada;
+            }
+        }
+        select {
+            color: #fff;
+            border-radius: 5px;
+            background: none;
+            outline: none;
+            border: 2px solid #fff;
+        }
+        option {
+            color: #000;
+        }
+        button {
+            border-radius: 5px;
+            padding: 10px 2rem;
+            outline: none;
+            background: none;
+            border: 2px solid #fff;
+            color: #fff;
+        }
+        label {
+            gap: 5px;
+            display: flex;
+            flex-direction: column;
+            text-align: center;
+        }
+    }
+}
+
+@media (min-width: 320px) and (max-width: 768px) {
+    .insert {
+        form {
+            font-size: small;
+            text-align: center;
+            textarea {
+                width: 100%;
+            }
+            label {
+                gap: 0px;
+            }
+        }
+    }
+}

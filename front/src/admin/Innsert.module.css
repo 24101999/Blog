@@ -1,0 +1,92 @@
+.insert {
+  background-image: url("../../imgs/wordpress-265132_1920.jpg");
+  background-repeat: no-repeat;
+  background-size: cover;
+  height: 100%;
+  position: absolute;
+  left: 0;
+  right: 0;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex-direction: column;
+}
+.insert form {
+  gap: 5px;
+  padding: 2rem;
+  background: none;
+  width: 40%;
+  border-radius: 10px;
+  border: 1px solid #fff;
+  background-color: rgba(0, 0, 0, 0.6862745098);
+  color: #fff;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex-direction: column;
+}
+.insert form input {
+  border-radius: 5px;
+  background: none;
+  outline: none;
+  border: 2px solid #fff;
+  color: #fff;
+}
+.insert form input::-moz-placeholder {
+  color: #dadada;
+}
+.insert form input::placeholder {
+  color: #dadada;
+}
+.insert form textarea {
+  height: 100px;
+  width: 250px;
+  border-radius: 5px;
+  background: none;
+  outline: none;
+  border: 2px solid #fff;
+  color: #fff;
+}
+.insert form textarea::-moz-placeholder {
+  color: #dadada;
+}
+.insert form textarea::placeholder {
+  color: #dadada;
+}
+.insert form select {
+  color: #fff;
+  border-radius: 5px;
+  background: none;
+  outline: none;
+  border: 2px solid #fff;
+}
+.insert form option {
+  color: #000;
+}
+.insert form button {
+  border-radius: 5px;
+  padding: 10px 2rem;
+  outline: none;
+  background: none;
+  border: 2px solid #fff;
+  color: #fff;
+}
+.insert form label {
+  gap: 5px;
+  display: flex;
+  flex-direction: column;
+  text-align: center;
+}
+
+@media (min-width: 320px) and (max-width: 768px) {
+  .insert form {
+    font-size: small;
+    text-align: center;
+  }
+  .insert form textarea {
+    width: 100%;
+  }
+  .insert form label {
+    gap: 0px;
+  }
+}/*# sourceMappingURL=Innsert.module.css.map */
