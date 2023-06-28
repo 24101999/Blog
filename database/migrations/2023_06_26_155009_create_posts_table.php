@@ -16,6 +16,7 @@ return new class extends Migration
             $table->string('titulo')->default('ok');
             $table->string('descricao')->default('ok');
             $table->string('autor')->default('ok');
+            $table->string('img');
             $table->foreignId('categoria_id')->constrained()->onDelete('cascade')->onUpdate('cascade')->unsigned()->nullable()->default(1);
             $table->timestamps();
         });

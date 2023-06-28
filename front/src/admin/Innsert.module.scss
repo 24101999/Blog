@@ -75,8 +75,12 @@
 @media (min-width: 320px) and (max-width: 768px) {
     .insert {
         form {
+            h1 {
+                font-size: 22px;
+            }
             font-size: small;
             text-align: center;
+            padding: 2rem 5.5rem;
             textarea {
                 width: 100%;
             }

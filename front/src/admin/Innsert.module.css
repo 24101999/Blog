@@ -82,6 +82,10 @@
   .insert form {
     font-size: small;
     text-align: center;
+    padding: 2rem 5.5rem;
+  }
+  .insert form h1 {
+    font-size: 22px;
   }
   .insert form textarea {
     width: 100%;

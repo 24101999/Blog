@@ -9,6 +9,7 @@ interface inf {
     titulo?: string;
     descricao?: string;
     autor?: string;
+    img?: string;
 }
 interface categoria {
     id: number;
@@ -40,6 +41,42 @@ const Home = (props: Props) => {
     return (
         <div className={styles.home}>
             <h1>home</h1>
+
+            <div className={styles.destaque}>
+                <div className="">
+                    <h2>POSTS PRINCIPAIS</h2>
+                </div>
+                <div className={styles.destaqueUnicoDiv}>
+                    {infos
+                        ? infos.slice(0, 3).map((i) => {
+                              return (
+                                  <div
+                                      key={i.id}
+                                      onClick={() => nav(`/post/unico/${i.id}`)}
+                                      className={styles.destaqueUnico}
+                                  >
+                                      <img src={i.img} alt="" />
+                                      <p>
+                                          <strong>Titulo:</strong>
+                                          {i.titulo}
+                                      </p>
+                                      <p>
+                                          <strong>Autor:{i.autor}</strong>
+                                      </p>
+                                      <p>
+                                          <strong>Descricao:</strong>
+                                          {i.descricao?.substring(0, 10)}....
+                                      </p>
+                                  </div>
+                              );
+                          })
+                        : ""}
+                </div>
+                <div className={styles.criePost}>
+                    <h3>CRIE SEU POST</h3>
+                    <button onClick={() => nav("/insert")}>POSTAR</button>
+                </div>
+            </div>
             <nav>
                 {categoria
                     ? categoria.map((c) => {
@@ -57,6 +94,7 @@ const Home = (props: Props) => {
                       })
                     : ""}
             </nav>
+
             <div className={styles.infoscat}>
                 {infosCategoria
                     ? infosCategoria.map((i) => {
@@ -66,9 +104,12 @@ const Home = (props: Props) => {
                                   key={i.id}
                                   className={styles.infosCategoria}
                               >
+                                  <img src={i.img} alt="" />
                                   <h2>{i.titulo}</h2>
-                                  <p>{i.descricao?.substring(0, 60)}...</p>
-                                  <p>{i.autor}</p>
+                                  <p>
+                                      <strong>{i.autor}</strong>
+                                  </p>
+                                  <p>{i.descricao?.substring(0, 20)}...</p>
                               </div>
                           );
                       })

@@ -8,21 +8,27 @@ use App\Models\Post;
 
 class homeController extends Controller
 {
-    public function index(ValidRequest $ValidRequest)
+    public function index(ValidRequest $request)
     {
 
         // Categoria::create(['name' => "tests"]);
         // Categoria::create(['name' => "logos"]);
         // Categoria::create(['name' => "machine"]);
 
-        $model = Categoria::find($ValidRequest->categoria);
+        $model = Categoria::find($request->categoria);
+
+        if ($request->img) {
+            $img = $request->img->store('images', 'public');
+            $link = asset("storage/$img");
+        }
 
         if ($model) {
             $model->posts()->create([
-                'titulo' => $ValidRequest->titulo,
-                'descricao' => $ValidRequest->descricao,
-                'autor' => $ValidRequest->autor,
-                'categoria' => $ValidRequest->categoria,
+                'titulo' => $request->titulo,
+                'descricao' => $request->descricao,
+                'autor' => $request->autor,
+                'categoria' => $request->categoria,
+                'img' => $link,
             ]);
         } else {
             echo 'erro';

@@ -1,7 +1,8 @@
 import React, { useEffect, useState } from "react";
 import styles from "../post/Post.module.css";
-import { useParams } from "react-router-dom";
+import { useNavigate, useParams } from "react-router-dom";
 import axios from "axios";
+import { url } from "inspector";
 type Props = {};
 
 interface inf {
@@ -9,13 +10,14 @@ interface inf {
     titulo?: string;
     descricao?: string;
     autor?: string;
+    img?: string;
 }
 
 const Post = (props: Props) => {
     const [post, setPost] = useState<inf>();
     const param = useParams();
     const id = param.id;
-
+    const nav = useNavigate();
     useEffect(() => {
         axios.get(`http://127.0.0.1:8000/posts/${id}`).then((res) => {
             setPost(res.data);
@@ -24,12 +26,21 @@ const Post = (props: Props) => {
     }, []);
 
     return (
-        <div>
+        <div
+            className={styles.posts}
+            style={{ backgroundImage: ` url(${post ? post.img : ""})` }}
+        >
+            <button className={styles.voltar} onClick={() => nav("/")}>
+                Voltar
+            </button>
             {post ? (
-                <div className="">
-                    <h2>{post.titulo}</h2>
+                <div className={styles.post}>
+                    <img src={post.img} alt="" />
+                    <h1>{post.titulo}</h1>
+                    <p>
+                        <strong>{post.autor}</strong>
+                    </p>
                     <p>{post.descricao}</p>
-                    <p>{post.autor}</p>
                 </div>
             ) : (
                 ""

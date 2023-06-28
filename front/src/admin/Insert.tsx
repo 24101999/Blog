@@ -1,6 +1,7 @@
 import axios from "axios";
 import React, { ChangeEvent, useEffect, useState } from "react";
 import styles from "./Innsert.module.css";
+import { useNavigate } from "react-router-dom";
 
 type Props = {};
 
@@ -14,9 +15,10 @@ const Insert = (props: Props) => {
     const [descricao, setDescricao] = useState<string>("");
     const [autor, setAutor] = useState<string>("");
     const [categoria, setCategoria] = useState<number>();
+    const [img, setImg] = useState<File | undefined>();
     const [dados, setDados] = useState<Array<d>>();
     const [msg, setMsg] = useState<string>("");
-    // const data = {};
+    const nav = useNavigate();
 
     useEffect(() => {
         axios.get("http://localhost:8000/categorias").then((res) => {
@@ -40,6 +42,7 @@ const Insert = (props: Props) => {
                     descricao,
                     autor,
                     categoria,
+                    img,
                 },
                 {
                     headers: {
@@ -48,7 +51,8 @@ const Insert = (props: Props) => {
                 }
             )
             .then(() => {
-                console.log("ok tudo certo");
+                alert("Post cadastrado com sucesso");
+                nav("/");
             })
             .catch(() => {
                 setMsg("algo deu errado");
@@ -60,6 +64,16 @@ const Insert = (props: Props) => {
             {" "}
             <form onSubmit={sub}>
                 <h1>CRIAR POST</h1>
+                <label>
+                    <span>Imagem</span>
+                    <input
+                        type="file"
+                        onChange={(e: ChangeEvent<HTMLInputElement>) => {
+                            if (!e.target.files) return;
+                            setImg(e.target.files[0]);
+                        }}
+                    />
+                </label>
                 <label>
                     <span>Titulo</span>
                     <input

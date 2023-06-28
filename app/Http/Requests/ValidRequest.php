@@ -26,7 +26,8 @@ class ValidRequest extends FormRequest
             'titulo' => 'required|string',
             'descricao' => 'required|string',
             'autor' => 'required|string',
-            // 'categoria' => 'required',
+            'img' => 'required|file',
+            'categoria' => 'required',
             // 'categoria_id' => 'required|exists:categoria:id',
         ];
     }
