@@ -1,5 +1,6 @@
 <?php
 
+use App\Http\Controllers\AdminController;
 use App\Http\Controllers\homeController;
 use Illuminate\Support\Facades\Route;
 
@@ -14,8 +15,11 @@ use Illuminate\Support\Facades\Route;
 |
 */
 
+Route::match(['get', 'delete'], '/post/destroy/{id}', [AdminController::class, 'postDestroy']);
+Route::match(['get', 'post'], '/post/update/{id}', [AdminController::class, 'postUpdate']);
 Route::match(['get', 'post'], '/', [homeController::class, 'index']);
 Route::match(['get', 'post'], '/posts', [homeController::class, 'posts']);
 Route::match(['get', 'post'], '/posts/{id?}', [homeController::class, 'postsUnico']);
 Route::match(['get', 'post'], '/posts/categoria/{id?}', [homeController::class, 'postsCategoria']);
 Route::match(['get', 'post'], '/categorias', [homeController::class, 'categorias']);
+Route::match(['get', 'post'], '/categorias/{id}', [homeController::class, 'categoriasUnica']);

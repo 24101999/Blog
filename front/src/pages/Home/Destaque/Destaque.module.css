@@ -1,0 +1,36 @@
+.destaque {
+  flex-direction: column;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.destaqueUnicoDiv {
+  display: flex;
+  gap: 1rem;
+}
+
+.destaqueUnico {
+  display: flex;
+  flex-direction: column;
+  border: 1px solid #000;
+  background: none;
+  height: 272px;
+  width: 200px;
+  justify-content: center;
+  align-items: center;
+  border-radius: 5px;
+  cursor: pointer;
+}
+.destaqueUnico img {
+  max-width: 100%;
+}
+
+@media (min-width: 320px) and (max-width: 768px) {
+  .destaque {
+    flex-direction: column;
+  }
+  .destaqueUnicoDiv {
+    flex-direction: column;
+  }
+}/*# sourceMappingURL=Destaque.module.css.map */

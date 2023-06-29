@@ -1,0 +1,55 @@
+h1 {
+  text-align: center;
+}
+
+.categorias button {
+  padding: 10px 2rem;
+  background: none;
+  border: 1px solid;
+  border-radius: 5px;
+  text-transform: uppercase;
+  font-weight: bolder;
+}
+.categorias button:hover {
+  background-color: rgba(0, 0, 0, 0.5411764706);
+}
+
+.infosCategoria {
+  display: flex;
+  flex-direction: column;
+  border: 1px solid #000;
+  background: none;
+  height: 292px;
+  width: 200px;
+  justify-content: center;
+  align-items: center;
+  border-radius: 5px;
+  cursor: pointer;
+}
+.infosCategoria img {
+  max-width: 100%;
+}
+
+.infoscat {
+  flex-wrap: wrap;
+  padding: 10px;
+  gap: 1rem;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+nav {
+  width: 100%;
+  display: flex;
+  justify-content: center;
+  gap: 10px;
+}
+
+@media (min-width: 320px) and (max-width: 768px) {
+  nav {
+    flex-direction: column;
+    align-items: center;
+    gap: 1rem;
+  }
+}/*# sourceMappingURL=Categorias.module.css.map */

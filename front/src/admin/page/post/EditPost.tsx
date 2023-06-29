@@ -1,71 +1,58 @@
+import React, { useState, useEffect, ChangeEvent } from "react";
+import styles from "./EditPost.module.css";
 import axios from "axios";
-import React, { ChangeEvent, useEffect, useState } from "react";
-import styles from "./Innsert.module.css";
-import { useNavigate } from "react-router-dom";
-
+import { useParams } from "react-router-dom";
+import { categoria, inf } from "../../../interfaces";
 type Props = {};
 
-interface dados {
-    id?: number;
-    name?: string;
-}
-
-const Insert = (props: Props) => {
+const EditPost = (props: Props) => {
     const [titulo, setTitulo] = useState<string>("");
     const [descricao, setDescricao] = useState<string>("");
     const [autor, setAutor] = useState<string>("");
     const [categoria, setCategoria] = useState<number>();
+    const [categoriaUnica, setCategoriaUnica] = useState<string>("");
     const [img, setImg] = useState<File | undefined>();
-    const [dados, setDados] = useState<Array<dados>>();
-    const [msg, setMsg] = useState<string>("");
-    const nav = useNavigate();
+    const [post, setPost] = useState<inf>();
+    const [DadosSelect, setDadosSelect] = useState<Array<categoria>>([]);
+    const param = useParams();
+    const id = param.id;
 
     useEffect(() => {
+        axios.get(`http://localhost:8000/posts/${id}`).then((res) => {
+            setPost(res.data);
+        });
         axios.get("http://localhost:8000/categorias").then((res) => {
-            setDados(res.data);
+            setDadosSelect(res.data);
+        });
+        axios.get(`http://localhost:8000/categorias/${id}`).then((res) => {
+            setCategoriaUnica(res.data);
         });
     }, []);
 
     const sub = (e: ChangeEvent<HTMLFormElement>) => {
         e.preventDefault();
-
-        if (!titulo || !descricao || !autor) {
-            setMsg("campo vazio");
-            return;
-        }
-
-        axios
-            .post(
-                "http://localhost:8000/",
-                {
-                    titulo,
-                    descricao,
-                    autor,
-                    categoria,
-                    img,
+        axios.post(
+            `http://localhost:8000/post/update/${id}`,
+            {
+                titulo,
+                descricao,
+                autor,
+                categoria,
+                img,
+            },
+            {
+                headers: {
+                    "Content-Type": "multipart/form-data",
                 },
-                {
-                    headers: {
-                        "Content-Type": "multipart/form-data",
-                    },
-                }
-            )
-            .then(() => {
-                alert("Post cadastrado com sucesso");
-                nav("/");
-            })
-            .catch(() => {
-                setMsg("algo deu errado");
-                console.log("erro");
-            });
+            }
+        );
     };
+
     return (
-        <div className={styles.insert}>
-            {" "}
+        <div className={styles.edit}>
             <form onSubmit={sub}>
-                <h1>CRIAR POST</h1>
                 <label>
-                    <span>Imagem</span>
+                    <span>imagem</span>
                     <input
                         type="file"
                         onChange={(e: ChangeEvent<HTMLInputElement>) => {
@@ -77,9 +64,8 @@ const Insert = (props: Props) => {
                 <label>
                     <span>Titulo</span>
                     <input
-                        placeholder={msg}
+                        placeholder={post ? post?.titulo : ""}
                         type="text"
-                        value={titulo}
                         onChange={(e: ChangeEvent<HTMLInputElement>) =>
                             setTitulo(e.target.value)
                         }
@@ -87,19 +73,18 @@ const Insert = (props: Props) => {
                 </label>
                 <label>
                     <span>Descricao</span>
-                    <textarea
-                        placeholder={msg}
-                        value={descricao}
-                        onChange={(e: ChangeEvent<HTMLTextAreaElement>) =>
+                    <input
+                        placeholder={post ? post?.descricao : ""}
+                        type="text"
+                        onChange={(e: ChangeEvent<HTMLInputElement>) =>
                             setDescricao(e.target.value)
                         }
-                    ></textarea>
+                    />
                 </label>
                 <label>
                     <span>Autor</span>
                     <input
-                        placeholder={msg}
-                        value={autor}
+                        placeholder={post ? post?.autor : ""}
                         type="text"
                         onChange={(e: ChangeEvent<HTMLInputElement>) =>
                             setAutor(e.target.value)
@@ -113,22 +98,22 @@ const Insert = (props: Props) => {
                             setCategoria(parseInt(e.target.value))
                         }
                     >
-                        <option value="0">selecione um valor</option>
-                        {dados
-                            ? dados.map((d) => {
+                        <option value={1}></option>
+                        {DadosSelect
+                            ? DadosSelect.map((ds) => {
                                   return (
-                                      <option key={d.id} value={d.id}>
-                                          {d.name}
+                                      <option key={ds.id} value={ds.id}>
+                                          {ds.name}
                                       </option>
                                   );
                               })
                             : ""}
                     </select>
                 </label>
-                <button type="submit">POSTAR</button>
+                <button type="submit">Editar</button>
             </form>
         </div>
     );
 };
 
-export default Insert;
+export default EditPost;

@@ -2,16 +2,10 @@ import React, { useEffect, useState } from "react";
 import styles from "../post/Post.module.css";
 import { useNavigate, useParams } from "react-router-dom";
 import axios from "axios";
+import { BiArrowBack } from "react-icons/bi";
 import { url } from "inspector";
+import { inf } from "../../interfaces";
 type Props = {};
-
-interface inf {
-    id: number;
-    titulo?: string;
-    descricao?: string;
-    autor?: string;
-    img?: string;
-}
 
 const Post = (props: Props) => {
     const [post, setPost] = useState<inf>();
@@ -31,7 +25,7 @@ const Post = (props: Props) => {
             style={{ backgroundImage: ` url(${post ? post.img : ""})` }}
         >
             <button className={styles.voltar} onClick={() => nav("/")}>
-                Voltar
+                <BiArrowBack />
             </button>
             {post ? (
                 <div className={styles.post}>

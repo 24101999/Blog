@@ -53,6 +53,10 @@ class homeController extends Controller
     {
         echo Categoria::all();
     }
+    public function categoriasUnica($id)
+    {
+        echo Categoria::find($id);
+    }
     public function insertPost()
     {
     }

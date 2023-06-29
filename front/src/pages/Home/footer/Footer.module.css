@@ -1,0 +1,39 @@
+.footer {
+  background-image: url("../../../../imgs/off.jpg");
+  background-size: cover;
+  background-repeat: no-repeat;
+  width: 100%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-direction: column;
+  padding: 5px 0;
+  gap: 1rem;
+  padding: 0;
+}
+.footer .contato {
+  color: #fff;
+}
+.footer .contato h1 {
+  margin: 0;
+}
+.footer .links {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  gap: 1rem;
+}
+.footer svg {
+  font-size: 35px;
+  color: #fff;
+}
+.footer svg:hover {
+  color: #dadada;
+}
+.footer .infos {
+  display: flex;
+  flex-direction: column;
+  gap: 1rem;
+  background-color: rgba(0, 0, 0, 0.7215686275);
+  width: 100%;
+}/*# sourceMappingURL=Footer.module.css.map */
