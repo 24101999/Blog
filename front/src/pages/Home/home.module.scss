@@ -6,6 +6,15 @@
     justify-content: center;
 }
 .admin {
+    color: #fff;
+    background: none;
+    outline: none;
+    border: none;
+    font-size: 35px;
+    p {
+        font-size: 14px;
+        margin: 0;
+    }
     position: absolute;
     right: 1rem;
     top: 1rem;

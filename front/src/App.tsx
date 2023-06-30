@@ -8,6 +8,7 @@ import Home from "./pages/Home/Home";
 import Post from "./pages/post/Post";
 import Admin from "./admin/page/Admin";
 import EditPost from "./admin/page/post/EditPost";
+import CategoriaEdit from "./admin/page/categorias/CategoriaEdit";
 
 function App() {
     return (
@@ -21,6 +22,10 @@ function App() {
                     <Route path="/post/unico/:id" element={<Post />} />
                     <Route path="/admin" element={<Admin />} />
                     <Route path="/post/edit/:id" element={<EditPost />} />
+                    <Route
+                        path="/categoria/edit/:id"
+                        element={<CategoriaEdit />}
+                    />
                 </Routes>
             </BrowserRouter>
         </div>

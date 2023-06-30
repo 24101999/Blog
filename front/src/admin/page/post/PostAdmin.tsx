@@ -2,6 +2,7 @@ import React, { useState, useEffect } from "react";
 import { inf } from "../../../interfaces";
 import axios from "axios";
 import styles from "./Post.module.css";
+import { AiFillEdit, AiFillDelete } from "react-icons/ai";
 import { useNavigate } from "react-router-dom";
 type Props = {};
 
@@ -29,15 +30,21 @@ const PostAdmin = (props: Props) => {
             {post
                 ? post.map((p) => {
                       return (
-                          <div key={p.id} className="">
-                              <img src={p.img} alt="" />
-                              <h2>{p.titulo}</h2>
-                              <button onClick={() => destroy(p.id)}>
-                                  deletar
-                              </button>
-                              <button onClick={() => nav(`/post/edit/${p.id}`)}>
-                                  editar
-                              </button>
+                          <div key={p.id} className={styles.infos}>
+                              <div className={styles.conteudoInfos}>
+                                  <h2>{p.titulo}</h2>
+                                  <img src={p.img} alt="" />
+                              </div>
+                              <div className={styles.buttonsPost}>
+                                  <button onClick={() => destroy(p.id)}>
+                                      <AiFillDelete color="red" />
+                                  </button>
+                                  <button
+                                      onClick={() => nav(`/post/edit/${p.id}`)}
+                                  >
+                                      <AiFillEdit color="green" />
+                                  </button>
+                              </div>
                           </div>
                       );
                   })

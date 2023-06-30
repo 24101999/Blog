@@ -7,7 +7,16 @@
 }
 
 .admin {
+  color: #fff;
+  background: none;
+  outline: none;
+  border: none;
+  font-size: 35px;
   position: absolute;
   right: 1rem;
   top: 1rem;
+}
+.admin p {
+  font-size: 14px;
+  margin: 0;
 }/*# sourceMappingURL=home.module.css.map */

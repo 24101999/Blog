@@ -1,0 +1,62 @@
+.categoria {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex-direction: column;
+  border: 1px solid;
+  margin: 0 2rem;
+  padding: 1rem;
+  gap: 2rem;
+  border-radius: 10px;
+}
+.categoria form {
+  display: flex;
+  flex-direction: column;
+  gap: 5px;
+}
+.categoria form label {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  gap: 5px;
+}
+.categoria form button {
+  background: none;
+  outline: none;
+  border: 1px solid;
+  border-radius: 5px;
+}
+.categoria form input {
+  outline: none;
+  background: none;
+  border: 1px solid;
+  border-radius: 5px;
+}
+
+.TodasCategorias {
+  display: flex;
+  flex-direction: column;
+  gap: 1rem;
+}
+.TodasCategorias h3 {
+  text-transform: capitalize;
+}
+
+.categoriaUnica {
+  padding: 1rem;
+  border: 1px solid;
+  border-radius: 5px;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+.categoriaUnica:hover {
+  background-color: #e4e4e4;
+}
+.categoriaUnica button {
+  background: none;
+  border: none;
+  outline: none;
+  font-size: 25px;
+}/*# sourceMappingURL=CategoriaAdmin.module.css.map */

@@ -3,9 +3,8 @@
 namespace App\Http\Requests;
 
 use Illuminate\Foundation\Http\FormRequest;
-use Illuminate\Auth\Events\Validated;
 
-class ValidRequest extends FormRequest
+class ValidR extends FormRequest
 {
     /**
      * Determine if the user is authorized to make this request.
@@ -27,7 +26,7 @@ class ValidRequest extends FormRequest
             'descricao' => 'required|string',
             'autor' => 'required|string',
             'img' => 'required|file',
-            'categoria' => 'required',
+            'categoria' => 'required'
         ];
     }
 }

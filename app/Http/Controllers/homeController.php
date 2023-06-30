@@ -2,20 +2,21 @@
 
 namespace App\Http\Controllers;
 
+use App\Http\Requests\ValidR;
 use App\Http\Requests\ValidRequest;
 use App\Models\Categoria;
 use App\Models\Post;
 
 class homeController extends Controller
 {
-    public function index(ValidRequest $request)
+    public function posts()
     {
-
-        // Categoria::create(['name' => "tests"]);
-        // Categoria::create(['name' => "logos"]);
-        // Categoria::create(['name' => "machine"]);
-
+        echo Post::all();
+    }
+    public function insertPost(ValidR $request)
+    {
         $model = Categoria::find($request->categoria);
+
 
         if ($request->img) {
             $img = $request->img->store('images', 'public');
@@ -33,10 +34,6 @@ class homeController extends Controller
         } else {
             echo 'erro';
         }
-    }
-    public function posts()
-    {
-        echo Post::all();
     }
     public function postsCategoria($id)
     {
@@ -56,8 +53,5 @@ class homeController extends Controller
     public function categoriasUnica($id)
     {
         echo Categoria::find($id);
-    }
-    public function insertPost()
-    {
     }
 }

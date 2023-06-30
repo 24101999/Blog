@@ -1,7 +1,7 @@
 import React, { useState, useEffect, ChangeEvent } from "react";
 import styles from "./EditPost.module.css";
 import axios from "axios";
-import { useParams } from "react-router-dom";
+import { useNavigate, useParams } from "react-router-dom";
 import { categoria, inf } from "../../../interfaces";
 type Props = {};
 
@@ -16,7 +16,7 @@ const EditPost = (props: Props) => {
     const [DadosSelect, setDadosSelect] = useState<Array<categoria>>([]);
     const param = useParams();
     const id = param.id;
-
+    const nav = useNavigate();
     useEffect(() => {
         axios.get(`http://localhost:8000/posts/${id}`).then((res) => {
             setPost(res.data);
@@ -31,26 +31,34 @@ const EditPost = (props: Props) => {
 
     const sub = (e: ChangeEvent<HTMLFormElement>) => {
         e.preventDefault();
-        axios.post(
-            `http://localhost:8000/post/update/${id}`,
-            {
-                titulo,
-                descricao,
-                autor,
-                categoria,
-                img,
-            },
-            {
-                headers: {
-                    "Content-Type": "multipart/form-data",
+        axios
+            .post(
+                `http://localhost:8000/post/update/${id}`,
+                {
+                    titulo,
+                    descricao,
+                    autor,
+                    categoria,
+                    img,
                 },
-            }
-        );
+                {
+                    headers: {
+                        "Content-Type": "multipart/form-data",
+                    },
+                }
+            )
+            .then(() => {
+                nav("/admin");
+            })
+            .catch(() => {
+                return;
+            });
     };
 
     return (
         <div className={styles.edit}>
             <form onSubmit={sub}>
+                <h2>EDITAR POST</h2>
                 <label>
                     <span>imagem</span>
                     <input
@@ -73,13 +81,12 @@ const EditPost = (props: Props) => {
                 </label>
                 <label>
                     <span>Descricao</span>
-                    <input
+                    <textarea
                         placeholder={post ? post?.descricao : ""}
-                        type="text"
-                        onChange={(e: ChangeEvent<HTMLInputElement>) =>
+                        onChange={(e: ChangeEvent<HTMLTextAreaElement>) =>
                             setDescricao(e.target.value)
                         }
-                    />
+                    ></textarea>
                 </label>
                 <label>
                     <span>Autor</span>

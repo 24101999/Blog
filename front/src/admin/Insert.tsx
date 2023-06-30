@@ -51,8 +51,8 @@ const Insert = (props: Props) => {
                 }
             )
             .then(() => {
-                alert("Post cadastrado com sucesso");
                 nav("/");
+                alert("Post cadastrado com sucesso");
             })
             .catch(() => {
                 setMsg("algo deu errado");

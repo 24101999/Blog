@@ -1,1 +1,96 @@
-/*# sourceMappingURL=EditPost.module.css.map */
+.edit {
+  background-image: url("../../../../imgs/edit-icon-2375785_1280.png");
+  background-size: cover;
+  background-repeat: no-repeat;
+  background-position: center;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  height: 100%;
+  position: absolute;
+  left: 0;
+  right: 0;
+}
+.edit form {
+  gap: 5px;
+  padding: 2rem;
+  background: none;
+  width: 40%;
+  border-radius: 10px;
+  border: 1px solid #fff;
+  background-color: rgba(0, 0, 0, 0.6862745098);
+  color: #fff;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex-direction: column;
+}
+.edit form input {
+  border-radius: 5px;
+  background: none;
+  outline: none;
+  border: 2px solid #fff;
+  color: #fff;
+}
+.edit form input::-moz-placeholder {
+  color: #dadada;
+}
+.edit form input::placeholder {
+  color: #dadada;
+}
+.edit form textarea {
+  height: 100px;
+  width: 250px;
+  border-radius: 5px;
+  background: none;
+  outline: none;
+  border: 2px solid #fff;
+  color: #fff;
+}
+.edit form textarea::-moz-placeholder {
+  color: #dadada;
+}
+.edit form textarea::placeholder {
+  color: #dadada;
+}
+.edit form select {
+  color: #fff;
+  border-radius: 5px;
+  background: none;
+  outline: none;
+  border: 2px solid #fff;
+}
+.edit form option {
+  color: #000;
+}
+.edit form button {
+  border-radius: 5px;
+  padding: 10px 2rem;
+  outline: none;
+  background: none;
+  border: 2px solid #fff;
+  color: #fff;
+}
+.edit form label {
+  gap: 5px;
+  display: flex;
+  flex-direction: column;
+  text-align: center;
+}
+
+@media (min-width: 320px) and (max-width: 768px) {
+  .edit form {
+    font-size: small;
+    text-align: center;
+    padding: 2rem 5.5rem;
+  }
+  .edit form h1 {
+    font-size: 22px;
+  }
+  .edit form textarea {
+    width: 100%;
+  }
+  .edit form label {
+    gap: 0px;
+  }
+}/*# sourceMappingURL=EditPost.module.css.map */

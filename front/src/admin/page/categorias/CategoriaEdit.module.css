@@ -1,0 +1,38 @@
+.edit {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  height: 100%;
+  left: 0;
+  right: 0;
+  position: absolute;
+}
+.edit form {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  border: 1px solid;
+  border-radius: 10px;
+  padding: 2rem;
+  gap: 5px;
+}
+.edit form input {
+  background: none;
+  border: 1px solid;
+  outline: none;
+  border-radius: 5px;
+}
+.edit form button {
+  background: none;
+  border: 1px solid;
+  outline: none;
+  border-radius: 5px;
+  padding: 10px 2rem;
+}
+.edit form label {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+}/*# sourceMappingURL=CategoriaEdit.module.css.map */

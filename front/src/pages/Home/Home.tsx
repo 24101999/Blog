@@ -7,6 +7,7 @@ import CriarPost from "./criarPost/CriarPost";
 import Categoria from "./categorias/Categoria";
 import Header from "./header/Header";
 import Footer from "./footer/Footer";
+import { RiAdminFill } from "react-icons/ri";
 type Props = {};
 
 const Home = (props: Props) => {
@@ -14,7 +15,10 @@ const Home = (props: Props) => {
     return (
         <div className={styles.home}>
             <button onClick={() => nav("/admin")} className={styles.admin}>
-                admin
+                <div className={styles.adm}>
+                    <RiAdminFill />
+                    <p>Admin</p>
+                </div>
             </button>
             <Header />
             <Destaque />
