@@ -3,12 +3,14 @@ import React, { useEffect, useState } from "react";
 import styles from "./Categorias.module.css";
 import { useNavigate } from "react-router-dom";
 import { categoria, inf } from "../../../interfaces";
+import Loading from "../../../loading/Loading";
 
 type Props = {};
 
 const Categoria = (props: Props) => {
     const [categoria, setCategoria] = useState<Array<categoria>>([]);
     const [infosCategoria, setInfosCategoria] = useState<Array<inf>>([]);
+    const [load, setLoad] = useState<boolean>(false);
     const nav = useNavigate();
     useEffect(() => {
         axios.get("http://localhost:8000/categorias").then((res) => {
@@ -17,9 +19,14 @@ const Categoria = (props: Props) => {
     }, []);
 
     const get = (e: number) => {
-        axios.get(`http://localhost:8000/posts/categoria/${e}`).then((res) => {
-            setInfosCategoria(res.data);
-        });
+        setTimeout(() => {
+            axios
+                .get(`http://localhost:8000/posts/categoria/${e}`)
+                .then((res) => {
+                    setInfosCategoria(res.data);
+                    setLoad(true);
+                });
+        }, 500);
         nav(`/post/categoria/${e}`);
     };
     return (

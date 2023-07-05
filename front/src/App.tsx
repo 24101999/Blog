@@ -9,25 +9,33 @@ import Post from "./pages/post/Post";
 import Admin from "./admin/page/Admin";
 import EditPost from "./admin/page/post/EditPost";
 import CategoriaEdit from "./admin/page/categorias/CategoriaEdit";
-
+import Login from "./admin/login/Login";
+import Cadastro from "./admin/login/Cadastro";
+import LoginContext from "./contexts/LoginContext";
 function App() {
     return (
         <div className="App">
-            <BrowserRouter>
-                <Routes>
-                    <Route path="/insert" element={<Insert />} />
-                    <Route path="/" element={<Home />} />
-                    <Route path="/post/categoria/:id" element={<Home />} />
-                    <Route path="/post/:id" element={<Home />} />
-                    <Route path="/post/unico/:id" element={<Post />} />
-                    <Route path="/admin" element={<Admin />} />
-                    <Route path="/post/edit/:id" element={<EditPost />} />
-                    <Route
-                        path="/categoria/edit/:id"
-                        element={<CategoriaEdit />}
-                    />
-                </Routes>
-            </BrowserRouter>
+            <LoginContext.Provider
+                value={{ key: sessionStorage.getItem("val") }}
+            >
+                <BrowserRouter>
+                    <Routes>
+                        <Route path="/insert" element={<Insert />} />
+                        <Route path="/" element={<Home />} />
+                        <Route path="/post/categoria/:id" element={<Home />} />
+                        <Route path="/post/:id" element={<Home />} />
+                        <Route path="/post/unico/:id" element={<Post />} />
+                        <Route path="/admin" element={<Admin />} />
+                        <Route path="/post/edit/:id" element={<EditPost />} />
+                        <Route
+                            path="/categoria/edit/:id"
+                            element={<CategoriaEdit />}
+                        />
+                        <Route path="/login" element={<Login />} />
+                        <Route path="/login/cadastro" element={<Cadastro />} />
+                    </Routes>
+                </BrowserRouter>
+            </LoginContext.Provider>
         </div>
     );
 }

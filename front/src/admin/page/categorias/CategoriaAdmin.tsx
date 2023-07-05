@@ -4,17 +4,22 @@ import axios from "axios";
 import { AiFillEdit, AiFillDelete } from "react-icons/ai";
 import { useNavigate } from "react-router-dom";
 import { categoria } from "../../../interfaces";
+import Loading from "../../../loading/Loading";
 type Props = {};
 
 const CategoriaAdmin = (props: Props) => {
     const [name, setname] = useState<string>("");
     const [categorias, setCategorias] = useState<Array<categoria>>([]);
+    const [load, setLoad] = useState<boolean>(false);
     const nav = useNavigate();
 
     const get = () => {
-        axios.get("http://localhost:8000/categorias").then((res) => {
-            setCategorias(res.data);
-        });
+        setTimeout(() => {
+            axios.get("http://localhost:8000/categorias").then((res) => {
+                setCategorias(res.data);
+                setLoad(true);
+            });
+        }, 500);
     };
 
     useEffect(() => {
@@ -78,6 +83,7 @@ const CategoriaAdmin = (props: Props) => {
                           );
                       })
                     : ""}
+                {!load ? <Loading /> : ""}
             </div>
         </div>
     );

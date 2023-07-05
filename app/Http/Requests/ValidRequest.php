@@ -23,9 +23,9 @@ class ValidRequest extends FormRequest
     public function rules(): array
     {
         return [
-            'titulo' => 'required|string',
-            'descricao' => 'required|string',
-            'autor' => 'required|string',
+            'titulo' => 'required|string|regex:/^[a-z 0-9 à-ú À-Ú]+$/i',
+            'descricao' => 'required|string|regex:/^[a-z 0-9 à-ú À-Ú]+$/i',
+            'autor' => 'required|string|regex:/^[a-z à-ú À-Ú]+$/i',
             'img' => 'required|file',
             'categoria' => 'required',
         ];

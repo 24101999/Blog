@@ -2,7 +2,6 @@
 
 namespace App\Http\Controllers;
 
-use App\Http\Requests\ValidR;
 use App\Http\Requests\ValidRequest;
 use App\Models\Categoria;
 use App\Models\Post;
@@ -13,7 +12,7 @@ class homeController extends Controller
     {
         echo Post::all();
     }
-    public function insertPost(ValidR $request)
+    public function insertPost(ValidRequest $request)
     {
         $model = Categoria::find($request->categoria);
 

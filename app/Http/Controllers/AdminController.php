@@ -2,6 +2,7 @@
 
 namespace App\Http\Controllers;
 
+use App\Http\Requests\ValidRequest;
 use App\Models\Categoria;
 use App\Models\Post;
 use Illuminate\Http\Request;
@@ -29,7 +30,7 @@ class AdminController extends Controller
     {
         Post::find($id)->delete();
     }
-    public function postUpdate(Request $request)
+    public function postUpdate(ValidRequest $request)
     {
         $update = Post::find($request->id);
         if ($request->img) {

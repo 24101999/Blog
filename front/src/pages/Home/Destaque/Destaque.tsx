@@ -3,17 +3,22 @@ import React, { useEffect, useState } from "react";
 import styles from "./Destaque.module.css";
 import { useNavigate } from "react-router-dom";
 import { inf } from "../../../interfaces";
+import Loading from "../../../loading/Loading";
 
 type Props = {};
 
 const Destaque = (props: Props) => {
     const [infos, setInfos] = useState<Array<inf>>([]);
+    const [load, setLoad] = useState<boolean>(false);
     const nav = useNavigate();
 
     useEffect(() => {
-        axios.get("http://localhost:8000/posts").then((res) => {
-            setInfos(res.data);
-        });
+        setTimeout(() => {
+            axios.get("http://localhost:8000/posts").then((res) => {
+                setInfos(res.data);
+                setLoad(true);
+            });
+        }, 500);
     }, []);
     return (
         <div className={styles.destaque}>
@@ -45,6 +50,7 @@ const Destaque = (props: Props) => {
                           );
                       })
                     : ""}
+                {!load ? <Loading /> : ""}
             </div>
         </div>
     );

@@ -4,15 +4,20 @@ import axios from "axios";
 import styles from "./Post.module.css";
 import { AiFillEdit, AiFillDelete } from "react-icons/ai";
 import { useNavigate } from "react-router-dom";
+import Loading from "../../../loading/Loading";
 type Props = {};
 
 const PostAdmin = (props: Props) => {
     const [post, setPost] = useState<Array<inf>>([]);
+    const [load, setLoad] = useState<boolean>(false);
     const nav = useNavigate();
     const get = () => {
-        axios.get("http://localhost:8000/posts").then((res) => {
-            setPost(res.data);
-        });
+        setTimeout(() => {
+            axios.get("http://localhost:8000/posts").then((res) => {
+                setPost(res.data);
+                setLoad(true);
+            });
+        }, 500);
     };
     useEffect(() => {
         get();
@@ -49,6 +54,7 @@ const PostAdmin = (props: Props) => {
                       );
                   })
                 : ""}
+            {!load ? <Loading /> : ""}
         </div>
     );
 };

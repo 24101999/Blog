@@ -19,4 +19,14 @@
 }
 .admin nav button:hover {
   background-color: #e2e2e2;
+}
+
+.home {
+  border: none;
+  background: none;
+  outline: unset;
+  font-size: 25px;
+  position: absolute;
+  left: 10px;
+  top: 10px;
 }/*# sourceMappingURL=Admin.module.css.map */

@@ -2,6 +2,7 @@
 
 use App\Http\Controllers\AdminController;
 use App\Http\Controllers\homeController;
+use App\Http\Controllers\LoginCntroller;
 use Illuminate\Support\Facades\Route;
 
 /*
@@ -26,3 +27,5 @@ Route::match(['get', 'post'], '/categorias/insert', [AdminController::class, 'ca
 Route::match(['get', 'delete'], '/categorias/destroy/{id}', [AdminController::class, 'categoriaDestroy']);
 Route::match(['get', 'post'], '/categorias/update/{id}', [AdminController::class, 'categoriaUpdate']);
 Route::match(['get', 'post'], '/categorias/{id}', [homeController::class, 'categoriasUnica']);
+Route::match(['get', 'post'], '/login', [LoginCntroller::class, 'login']);
+Route::match(['get', 'post'], '/login/cadastro', [LoginCntroller::class, 'cadastro']);
