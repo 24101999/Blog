@@ -14,6 +14,6 @@ Este é um blog simples onde você pode, cadastrar posts com título descrição
 
 <h2>Para iniciar o Banco</h2>
 
-<p> Criar um banco no arquivo .env colocar nome do banco e rodar php artisan migrate </p>
+<p> Criar um banco de dados, no arquivo .env colocar nome do banco e rodar php artisan migrate </p>
 
 <h3> tecnologias usadas: PHP/Laravel no Back-end e no Front-end React/TypeScript </h3>
