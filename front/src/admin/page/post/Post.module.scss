@@ -30,6 +30,41 @@
     }
 }
 
+//modal
+.modal {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    height: 100%;
+    position: fixed;
+    z-index: 5;
+    top: 0;
+    left: 0;
+    right: 0;
+    opacity: 1;
+    background-color: #00000086;
+    transition: all 0.4s;
+    h1 {
+        color: #fff;
+    }
+}
+.modalNone {
+    transition: all 0.4s;
+    align-items: center;
+    justify-content: center;
+    flex-direction: column;
+    left: 0;
+    right: 0;
+    top: 0;
+    display: flex;
+    opacity: 0;
+    position: fixed;
+    height: 100%;
+    z-index: -1;
+}
+//modal
+
 @media (min-width: 320px) and (max-width: 768px) {
     .post {
         img {

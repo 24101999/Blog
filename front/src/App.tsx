@@ -13,11 +13,11 @@ import Login from "./admin/login/Login";
 import Cadastro from "./admin/login/Cadastro";
 import LoginContext from "./contexts/LoginContext";
 function App() {
+    const [key, setKey] = useState<string>("");
+
     return (
         <div className="App">
-            <LoginContext.Provider
-                value={{ key: sessionStorage.getItem("val") }}
-            >
+            <LoginContext.Provider value={{ key, setKey }}>
                 <BrowserRouter>
                     <Routes>
                         <Route path="/insert" element={<Insert />} />

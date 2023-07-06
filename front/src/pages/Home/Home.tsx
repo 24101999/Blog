@@ -14,7 +14,7 @@ const Home = (props: Props) => {
     const nav = useNavigate();
     return (
         <div className={styles.home}>
-            <button onClick={() => nav("/admin")} className={styles.admin}>
+            <button onClick={() => nav("/login")} className={styles.admin}>
                 <div className={styles.adm}>
                     <RiAdminFill />
                     <p>Admin</p>

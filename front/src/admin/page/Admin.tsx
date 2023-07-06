@@ -13,14 +13,13 @@ const Admin = (props: Props) => {
 
     const { key }: any = useContext(LoginContext);
 
+    const nav = useNavigate();
+
     useEffect(() => {
-        if (key === sessionStorage.getItem("val")) {
-            return;
-        } else {
+        if (key != sessionStorage.getItem("val")) {
+            nav("/login");
         }
     }, []);
-
-    const nav = useNavigate();
     const posts = () => {
         setTipo(<PostAdmin />);
     };
